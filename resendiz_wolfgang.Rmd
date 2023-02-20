@@ -5,7 +5,7 @@ date: "`r Sys.Date()`"
 output: pdf_document
 ---
 
-# Tarea 1
+# Tarea 1 - Econometría
 
 
 6.  Suponga que el peso neto por lata en una marca de sopa tiene una $\mu = 565g$ 
