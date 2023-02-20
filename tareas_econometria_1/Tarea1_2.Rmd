@@ -1,5 +1,5 @@
 ---
-title: "Tarea 1.2 Econometría "
+title: "Tarea 1.2 Econometría"
 author: "Wolfgang A. Resendiz Martínez"
 date: "`r Sys.Date()`"
 output: pdf_document
