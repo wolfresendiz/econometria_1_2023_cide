@@ -1,0 +1,83 @@
+---
+title: "Tarea 2_2 de Econometría"
+author: "Wolfgang A. Resendiz Martínez"
+date: "`r Sys.Date()`"
+output: pdf_document
+---
+
+# Tarea 2_2
+
+## Ejercicio 5
+
+Una compañía fabrica propulsores para uso en motores de turbina. Una de las operaciones consiste en esmerilar el terminado de una superficie particular con una aleación de titanio.   Pueden emplearse dos procesos de esmerilado y, ambos pueden producir partes que tienen   la misma rugosidad superficial promedio.
+
+Al ingeniero de manufactura le gustaría   seleccionar el proceso que tenga la menor variabilidad en la rugosidad de la superficie. Para   ello, toma una **muestra de tamaño igual a 12** partes del primer proceso, la cual tiene una   estimación de la **desviación estándar igual 5.1 $\mu in$** y; una **segunda muestra   aleatoria de tamaño igual a $15$** partes del segundo proceso, la cual tiene una **estimación de   la desviación estándar igual a 4.7  $\mu in$**. 
+
+Se desea encontrar un intervalo de confianza del $90\%$ para el cociente de las dos varianzas $\left(\frac{\sigma^1_2}{\sigma^2_2}\right)$.
+
+Suponer que los dos procesos   son independientes y que la rugosidad de la superficie está distribuida de manera Normal.  
+
+1. Exponga la evidencia muestral e información poblacional proporcionada en el ejercicio,   por ejemplo: tamaño de la muestra, estimadores, parámetros, etc.  
+2. Exponga la ecuación del intervalo de confianza a emplear y en dicha ecuación sustituya   los valores correspondientes.  
+3. Conclusiones
+
+
+## Ejercicio 6
+Un fabricante de componentes para televisores afirma que se necesitan menos de $250\mu A$ de corriente para alcanzar cierto grado de brillantez en un tipo de televisor en particular. Una muestra de 20 aparatos produce un promedio muestral de corriente de $\bar{x}=257.3$. 
+
+Denotemos por $\mu$ el verdadero promedio de corriente necesaria para alcanzar la brillantez deseada con aparatos de este tipo. Supongamos que $\mu$ es la media de una  población normal y, que se sabe por experiencia previa que $\sigma = 15$.
+
+Pruebe con un valor   $\alpha=0.05$, la hipótesis nula de que $\mu$ alcance un valor máximo de $250$, contra la hipótesis   alternativa apropiada.
+
+
+1. Establecer las hipótesis  
+2. Muestral la evidencia muestral e información poblacional  
+3. Al nivel de significancia establecido encontrar la región de rechazo.
+4. Conclusiones  
+
+## Ejercicio 7
+Una muestra de $50$ lentes utilizadas en anteojos produce un grosor medio muestral de $3.05mm$, y una desviación estándar muestral de $0.34mm$. El promedio verdadero deseado de   grosor de tales lentes es de $3.20mm$ ¿Sugiere la información que el verdadero promedio de   grosor de tales lentes es diferente al grosor deseado? Pruebe usando $\alpha=0.05$
+  
+1. Establecer las hipótesis  
+2. Muestral la evidencia muestral e información poblacional  
+3. Al nivel de significancia establecido encontrar la región de rechazo.  
+4. Conclusiones  
+
+# Ejercicio 8
+
+Las personas que tienen síndrome de Reynaud están propensas a sufrir un repentino   deterioro de circulación sanguínea en los dedos de manos y pies. 
+
+En un experimento para   estudiar la magnitud de este deterioro, cada persona introdujo su dedo índice en agua y se   midió la salida resultante de calor. 
+
+Para $n_1 = 10$ personas con el síndrome, el promedio de   salida de calor fue $\bar{x_{1}} = 0.64$  y; para $n_2 = 10$, pacientes que no tienen el padecimiento, el   promedio de salida fue $\bar{x_2} = 2.05$. 
+
+Denotemos por $\mu_1$ la media poblacional para el caso de   personas con el síndrome y $\mu_2$ la media poblacional para el caso de personas sin el síndrome. Pruebe la hipótesis donde se   presuma que la diferencia entre $mu_1$ y $mu_2$ sea inferior a $-1$. Supongamos que las dos   distribuciones de salida de calor son normales con $\sigma_1 = 0.2$ y $\sigma_2 = 0.4$. 
+
+Considere un nivel   de significancia de $5\%$.  
+
+1. Establecer las hipótesis  
+2. Muestral la evidencia muestral e información poblacional  
+3. Al nivel de significancia establecido encontrar la región de rechazo.  
+4. Conclusiones  
+
+### Ejercicio 8.BIS
+
+Suponga que $\mu_A$ y $\mu_B$ son las verdaderas distancias medias de parada a velocidad de $50\left(\frac{m}{h}\right)$  para automóviles de cierto tipo. 
+
+Dichos autos están equipados con dos tipos diferentes de   sistemas de frenos: el sistema de freno $A$, que en $6$ pruebas tuvo una estimación de la media   igual a $2m$ y una estimación de la desviación estándar igual a $1.8 m$. Mientras que el sistema   de freno $B$, en $6$ pruebas, tuvo una estimación de la media igual a $2.5 m$ y una estimación   de la desviación estándar igual a $2.2 m$. 
+
+Utilice la prueba $t$ al nivel de significancia de $0.01$   para probar si la media de la distancia de parada del sistema de freno $B$ excede por más de   $0.5 m$ a la media de la distancia de parada del sistema 
+>>(Hint: Investigue y aplique la   variación del estadístico t-student con la corrección de grados de libertad a la   Satterthwaite)  
+
+5. Establecer las hipótesis  
+6. Muestral la evidencia muestral e información poblacional  
+7.  Al nivel de significancia establecido encontrar la región de rechazo.  
+8. Conclusiones  
+
+
+# Ejercicio 9
+
+Un fabricante de baterías para automóvil afirma que sus baterías durarán, en promedio,   tres años con una varianza de un año y medio. Si con cinco de estas baterías se calcula una   varianza muestral de $1.66$, pruebe si la afirmación del fabricante de que $\sigma_2=1.5$ es válida.   Suponga que la población de duraciones de las baterías se distribuye de forma   aproximadamente normal. 
+>Utilice $\alpha=0.02$
+
+
