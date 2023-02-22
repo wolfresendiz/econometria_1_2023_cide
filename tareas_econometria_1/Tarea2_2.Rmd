@@ -15,11 +15,67 @@ Al ingeniero de manufactura le gustaría   seleccionar el proceso que tenga la m
 
 Se desea encontrar un intervalo de confianza del $90\%$ para el cociente de las dos varianzas $\left(\frac{\sigma^1_2}{\sigma^2_2}\right)$.
 
-Suponer que los dos procesos   son independientes y que la rugosidad de la superficie está distribuida de manera Normal.  
+Suponer que los dos procesos son independientes y que la rugosidad de la superficie está distribuida de manera Normal.  
 
-1. Exponga la evidencia muestral e información poblacional proporcionada en el ejercicio,   por ejemplo: tamaño de la muestra, estimadores, parámetros, etc.  
-2. Exponga la ecuación del intervalo de confianza a emplear y en dicha ecuación sustituya   los valores correspondientes.  
+1. Exponga la evidencia muestral e información poblacional proporcionada en el ejercicio,  por ejemplo: tamaño de la muestra, estimadores, parámetros, etc. 
+   
+| Parámetro | Valor |
+|---:|---|
+| Tamaño de muestra para el proceso 1 | $n = 12$ |
+| Tamaño de muestra para el proceso 2 | $m = 15$ |
+| Desviación estándar para el proceso 1 | $S_X = 5.1 \mu in$ |
+| Desviación estándar para el proceso 2 | $S_Y = 4.7 \mu in$ |
+| Suposiciones | Los dos procesos son independientes y normalmente distribuídos |
+| Intervalo de confianza | 90%|
+|$\alpha$| 0.1|
+|Parámetro a estimar|$\left(\frac{\sigma^1_2}{\sigma^2_2}\right)$.|
+
+
+
+2. Exponga la ecuación del intervalo de confianza a emplear y en dicha ecuación sustituya   los valores correspondientes. 
+
+Si $X_1, X_2, \ldots, X_n \sim N\left(\mu_X, \sigma_X^2\right)$ y $Y_1, Y_2, \ldots, Y_m \sim N\left(\mu_Y, \sigma_Y^2\right)$.
+Entonces:
+
+$$
+\implies P\left[F_{1-\frac{\alpha}{2}}(m-1, n-1) \leq \frac{\sigma_X^2}{\sigma_Y^2} \cdot \frac{S_Y^2}{S_X^2} \leq F_{\frac{\alpha}{2}}(m-1, n-1)\right]=1-\alpha
+$$
+
+$$ \implies
+\frac{1}{F_{\frac{\alpha}{2}}(n-1, m-1)} \frac{S_X^2}{S_Y^2} \leq \frac{\sigma_X^2}{\sigma_Y^2} \leq F_{\frac{\alpha}{2}}(m-1, n-1) \frac{S_X^2}{S_Y^2} =1-\alpha
+$$
+
+Sustituyendo:
+
+```{r}
+alpha <- 0.1
+n <- 12
+m <- 15
+s2_X <- (5.1)^2
+s2_Y <- (4.7)^2
+
+
+a_val <- 1 / qf( (alpha / 2), n - 1, m - 1)
+b_val <- qf(alpha / 2, m - 1, n - 1)
+
+l_val <- (s2_X / s2_Y) * a_val
+u_val <- (s2_X / s2_Y) * b_val
+
+print(l_val)
+print(u_val)
+
+```
+
+
+$$
+P\left(0.46 \leq \frac{\sigma_X^2}{\sigma_Y^2} \leq 3.22\right)=0.90
+$$
+
 3. Conclusiones
+
+Con un nivel de confianza del 90%, podemos afirmar que $(sigma1^2/sigma2^2)$ está entre 0.459 y 3.225. Dado que el intervalo de confianza contiene el valor de 1, no hay diferencias significativas en la variabilidad de la rugosidad entre los dos procesos.
+
+
 
 
 ## Ejercicio 6
@@ -30,18 +86,114 @@ Denotemos por $\mu$ el verdadero promedio de corriente necesaria para alcanzar l
 Pruebe con un valor   $\alpha=0.05$, la hipótesis nula de que $\mu$ alcance un valor máximo de $250$, contra la hipótesis   alternativa apropiada.
 
 
-1. Establecer las hipótesis  
+1. Establecer las hipótesis 
+
+Usando prueba de hiótesis para medias
+(prueba unilateral derecha)
+
+$$H_0: \mu \leq 250$$
+$$H_1: \mu >   250$$
+
 2. Muestral la evidencia muestral e información poblacional  
+  
+| Parámetro | Valor |
+|---:|---|
+| media muestral | $\bar{x} = 257.3$ |
+| $\alpha$ | 0.05 |
+| Tamaño de muestra | $n = 20$ |
+| Desviación estándar | $\sigma = 15$ |
+
+
 3. Al nivel de significancia establecido encontrar la región de rechazo.
+
+La regla de decisión es:
+
+$$ \begin{cases} H_0 \text{ es rechazada si } 
+Z_0=\frac{\bar{x}-\mu_0}{\frac{\sigma}{\sqrt{n}}}
+ \geq z_{1 - \alpha} \\ H_0 \text{ no es rechazada si } Z_0=\frac{\bar{x}-\mu_0}{\frac{\sigma}{\sqrt{n}}}
+ < z_{1 - \alpha} \end{cases} $$
+
+
+```{r}
+x_bar <- 257.3
+alpha <- 0.05
+n <- 20
+sigma <- 15
+
+mu_0 <- 250
+
+Z_0 <- (x_bar - mu_0) / (sigma / sqrt(n))
+Z1_alpha <- qnorm (1-alpha)
+
+print(Z_0)
+print(Z1_alpha)
+
+```
+
+Sustituyendo:
+
+$$ Z_0 =2.176439 > 1.644854$$
+
+Por lo tanto, se rechaza $H_0$.
+
+
 4. Conclusiones  
+
+Afirmamos con una significancia del 5% que el promedio de corriente necesaria para alcanzar la brillantez deseada es mayor a 250.
 
 ## Ejercicio 7
 Una muestra de $50$ lentes utilizadas en anteojos produce un grosor medio muestral de $3.05mm$, y una desviación estándar muestral de $0.34mm$. El promedio verdadero deseado de   grosor de tales lentes es de $3.20mm$ ¿Sugiere la información que el verdadero promedio de   grosor de tales lentes es diferente al grosor deseado? Pruebe usando $\alpha=0.05$
   
-1. Establecer las hipótesis  
-2. Muestral la evidencia muestral e información poblacional  
+1. Establecer las hipótesis 
+
+$$H_0: \mu = 3.20$$
+$$H_1: \mu \neq 3.20$$
+
+2. Muestral la evidencia muestral e información poblacional
+
+| Parámetro | Valor |
+|---:|---|
+| media muestral | $\bar{x} = 3.05$ |
+| $\alpha$ | 0.05 |
+| Tamaño de muestra | $n = 50$ |
+| Desviación estándar muestral | $S = 0.34$ |
+| $\mu$ | 3.20 |
+
+
 3. Al nivel de significancia establecido encontrar la región de rechazo.  
+
+Al ser $\sigma$ desconocida, se usa la distribución t-student.
+
+$\frac{\bar{X}-\mu_0}{s / \sqrt{n}} \sim t_{n-1}$
+
+La regla de decisión es:
+
+Si $\frac{\bar{x}-\mu_0}{s / \sqrt{n}} \geq t_{\frac{\alpha}{2}, n-1}$ ó $\frac{\bar{x}-\mu_0}{s / \sqrt{n}} \leq-{t_{\frac{\alpha}{2}, n-1}}$, sí se rechaza $H_0 \quad$ Si $-{t_{{\frac{\alpha}{2}}, n-1}}<\frac{\bar{x}-\mu_0}{s / \sqrt{n}}<t_{\alpha, n-1}$, no se rechaza $H_0$
+
+___
+
+```{r}
+x_bar <- 3.05
+alpha <- 0.05
+n <- 50
+s <- 0.34
+mu_0 <- 3.20
+
+t <- qt(1 - alpha / 2, n - 1)
+t_0 <- (x_bar - mu_0) / (s / sqrt(n))
+
+print(t)
+print(t_0)
+
+```
+
+Así, sabemos que 
+
+$-t_{\frac{\alpha}{2}, n-1} = -2.009575 > \frac{\bar{x}-\mu_0}{s / \sqrt{n}} = -3.1195$ Por lo que se rechaza $H_0$.
+
 4. Conclusiones  
+
+Rechazamos la hipótesis nula. El verdadero promedio de grosor de las lentes utilizadas en anteojos es diferente del valor verdadero deseado de $3.20 mm$.
 
 # Ejercicio 8
 
@@ -56,8 +208,30 @@ Denotemos por $\mu_1$ la media poblacional para el caso de   personas con el sí
 Considere un nivel   de significancia de $5\%$.  
 
 1. Establecer las hipótesis  
-2. Muestral la evidencia muestral e información poblacional  
-3. Al nivel de significancia establecido encontrar la región de rechazo.  
+
+$$H_0: \mu_1 - \mu_2 \geq -1$$
+$$H_1: \mu_1 - \mu_2 < -1$$
+
+
+1. Muestral la evidencia muestral e información poblacional  
+
+| Parámetro | Valor |
+|---:|---|
+| $\alpha$ | 0.05 |
+| Tamaño de muestra | $n_1 = 10$ |
+| Tamaño de muestra | $n_2 = 10$ |
+| $\sigma_1$ | 0.2 |
+| $\sigma_2$ | 0.4 |
+| $\bar{X}_1$ | 0.64 |
+| $\bar{X}_2$ | 2.05 |
+
+
+
+
+
+1. Al nivel de significancia establecido encontrar la región de rechazo.
+
+
 4. Conclusiones  
 
 ### Ejercicio 8.BIS
